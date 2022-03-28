@@ -36,16 +36,14 @@ function App() {
         setCards(prevCards => {
           return prevCards.map(card =>{
             if (card.src === choiceOne.src) {
-              return {...card, matchhed: true}
+              return {...card, matched: true}
             } else {
               return card
-            }
-          }
-          )
+            }})
         })
         resetTurn()
       } else {
-        resetTurn()
+        setTimeout(() => resetTurn(), 1000)
       }
     }
   }, [choiceTwo])
@@ -67,6 +65,7 @@ function App() {
             key={card.id}
             card={card}
             handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
           />
         ))}
       </div>
