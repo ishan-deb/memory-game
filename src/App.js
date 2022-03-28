@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css'
 import Card from './components/Card';
 
-
 const cardImages = [
   { src : 'img/helmet-1.png' },
   { src : 'img/potion-1.png' },
@@ -31,8 +30,10 @@ function App() {
   return (
     <div className="App">
       <h1>Magic Match</h1>
-      <Card cards={cards}/>
       <button onClick={shuffleCards}>New Game</button>
+      <div className='card-grid'>
+        {<Card cards={cards} />}
+      </div>
     </div>
   );
 }
