@@ -1,16 +1,22 @@
 import './Card.css'
 
-export default function Card({ cards }) {
+export default function Card({ card, handleChoice }) {
+
+  const handleClick = () => {
+    handleChoice(card)
+  }
+
   return (
-    cards.map(card => 
-      (
-        <div className='card' key={card.id}>
-          <div>
-            <img className='face' src={card.src} alt='card face'></img>
-            <img className='cover' src="/img/cover.png" alt="card cover"/>
-          </div>
-        </div>
-      )
-    )
+    <div className="card">
+      <div>
+        <img className="front" src={card.src} alt="card front" />
+        <img 
+        className="back" 
+        src="/img/cover.png" 
+        onClick={handleClick}
+        alt="cover"
+        />
+      </div>
+    </div>
   )
 }
