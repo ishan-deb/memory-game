@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css'
+import Card from './components/Card';
+
 
 const cardImages = [
   { src : 'img/helmet-1.png' },
@@ -29,20 +31,7 @@ function App() {
   return (
     <div className="App">
       <h1>Magic Match</h1>
-      <div className='card-grid'>
-        {
-          cards.map(card => 
-            (
-              <div className='card' key={card.id}>
-                <div>
-                  <img className='face' src={card.src} alt='card face'></img>
-                  <img className='cover' src="/img/cover.png" alt="card cover"/>
-                </div>
-              </div>
-            )
-          )
-        }
-      </div>
+      <Card cards={cards}/>
       <button onClick={shuffleCards}>New Game</button>
     </div>
   );
