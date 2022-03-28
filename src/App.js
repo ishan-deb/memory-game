@@ -9,7 +9,6 @@ const cardImages = [
   { src : 'img/shield-1.png' },
   { src : 'img/sword-1.png' }
 ]
-console.table(cardImages)
 
 function App() {
   const [cards, setCards] = useState([])
@@ -24,11 +23,26 @@ function App() {
     setTurns(0)
   }
 
-  console.log(cards, turns)
+  // console.table(cards)
+  // console.log(turns)
 
   return (
     <div className="App">
       <h1>Magic Match</h1>
+      <div className='card-grid'>
+        {
+          cards.map(card => 
+            (
+              <div className='card' key={card.id}>
+                <div>
+                  <img className='face' src={card.src} alt='card face'></img>
+                  <img className='cover' src="/img/cover.png" alt="card cover"/>
+                </div>
+              </div>
+            )
+          )
+        }
+      </div>
       <button onClick={shuffleCards}>New Game</button>
     </div>
   );
